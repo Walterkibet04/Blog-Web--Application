@@ -3,8 +3,9 @@ from .import views
 
 urlpatterns = [
      path('', views.Home, name='home'),
+    path('base/', views.Base, name='About'),
     path('about/', views.About, name='About'),
-    path('category/', views.Category, name='home'),
+    path('category/', views.Category, name='category'),
     path('singleblog/', views.BlogSingle, name='home'),
     path('classic/', views.Classic, name='home'),
     path('contact/', views.Contact, name='home'),
