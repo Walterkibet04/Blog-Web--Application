@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Post
+from .models import Post, Category
 # Create your views here.
 
 def Home(request):
@@ -11,6 +11,10 @@ def Home(request):
   inspiration = Post.objects.filter(section = 'Inspiration', status=1).order_by('-id')[0:2]
   latest_post = Post.objects.filter(section = 'Latest_post', status=1).order_by('-id')[0:4]
 
+  category = Category.objects.all()
+
+
+
   context =  {
     'popular_post': popular_post,
     'recent_post': recent_post,
@@ -19,35 +23,22 @@ def Home(request):
     'trending': trending,
     'inspiration': inspiration,
     'latest_post': latest_post,
+    'category': category,
   }
   return render(request, 'main/index.html', context)
 
 def Base(request):
   return render(request, 'main/base.html')
 
-# def About(request):
-#   return render(request, 'about.html')
+def About(request):
+  return render(request, 'about.html')
 
-# def BlogSingle(request):
-#   return render(request, 'blog-single.html')
+def BlogSingle(request):
+  return render(request, 'blog-single.html')
 
-# def Single(request):
-#   return render(request, 'blog-single-alt.html')
+def Single(request):
+  return render(request, 'blog-single-alt.html')
 
-# def Category(request):
-#   return render(request, 'category.html')
+def Contact(request):
+  return render(request, 'contact.html')
 
-# def Classic(request):
-#   return render(request, 'classic.html')
-
-# def Contact(request):
-#   return render(request, 'contact.html')
-
-# def Minimal(request):
-#   return render(request, 'minimal.html')
-
-# def Personal(request):
-#   return render(request, 'personal.html')
-  
-# def PersonalAlt(request):
-#   return render(request, 'personal-alt.html')
