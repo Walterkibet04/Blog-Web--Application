@@ -8,6 +8,9 @@ class TagTabularInline(admin.TabularInline):
 
 class PostAdmin(admin.ModelAdmin):
     inlines = [TagTabularInline]
+    list_display = ['title', 'author', 'date', 'status', 'section','Main_post']
+    list_editable = ['status','section', 'Main_post']
+    search_fields = ['title', 'author', 'section']
 
 admin.site.register(Category)
 admin.site.register(Post, PostAdmin)

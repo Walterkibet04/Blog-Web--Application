@@ -37,6 +37,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=500, null=True, blank=True, unique=True)
     status = models.CharField(choices=STATUS, max_length=100)
     section = models.CharField(choices=SECTION, max_length=100)
+    Main_post = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
