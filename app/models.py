@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.utils.text import slugify
 from django.db.models.signals import pre_save
 
@@ -41,6 +42,10 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    # def get_absolute_url(self):
+    #     return reverse("single", kwargs={'slug': self.slug})
+
 
 def create_slug(instance, new_slug=None):
     slug = slugify(instance.title)

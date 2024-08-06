@@ -9,5 +9,5 @@ urlpatterns = [
     path('about/', views.About, name='About'),
     path('singleblog/', views.BlogSingle, name='home'),
     path('contact/', views.Contact, name='home'),
-    path('single/', views.Single, name='home'),
+    path('single/', views.Single, name='single'),
 ] + static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
